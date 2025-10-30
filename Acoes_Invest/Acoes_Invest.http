@@ -1,0 +1,6 @@
+@Acoes_Invest_HostAddress = http://localhost:5116
+
+GET {{Acoes_Invest_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
