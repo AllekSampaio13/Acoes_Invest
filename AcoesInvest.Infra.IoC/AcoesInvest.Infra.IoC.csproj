@@ -13,4 +13,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AcoesInvest.Application\AcoesInvest.Application.csproj" />
+    <ProjectReference Include="..\AcoesInvest.Infra.Data\AcoesInvest.Infra.Data.csproj" />
+  </ItemGroup>
+
 </Project>

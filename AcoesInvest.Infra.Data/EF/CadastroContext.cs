@@ -12,14 +12,14 @@ public class CadastroContext : DbContext, IUnitOfWork
     public CadastroContext(DbContextOptions options) : base(options)
     {
         ChangeTracker.LazyLoadingEnabled = false;
-        CriarBancoCasoNaoExista();
+        //CriarBancoCasoNaoExista();
     }
 
-    private void CriarBancoCasoNaoExista()
-    {
-        if (!(Database.GetService<IDatabaseCreator>() as RelationalDatabaseCreator).Exists())
-            Database.EnsureCreated();
-    }
+    //private void CriarBancoCasoNaoExista()
+    //{
+    //    if (!(Database.GetService<IDatabaseCreator>() as RelationalDatabaseCreator).Exists())
+    //        Database.EnsureCreated();
+    //}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

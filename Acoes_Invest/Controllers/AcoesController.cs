@@ -1,21 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AcoesInvest.Application.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Acoes_Invest.Controllers;
 
+[ApiController]
+[Route("api/[controller]")]
 public class AcoesController : Controller
 {
+    private readonly IAcoesAppService _acoesAppService;
+    public AcoesController(IAcoesAppService acoesAppService)
+    {
+        _acoesAppService = acoesAppService;
+    }
 
     [HttpGet("api/acoes/listar")]
-    public IActionResult BuscarAcoes()
+    public async Task<IActionResult> BuscarAcoes()
     {
-        var acoes = new[]
-        {
-        new { Id = 1, Nome = "Ação A", Preco = 100.50 },
-        new { Id = 2, Nome = "Ação B", Preco = 200.75 },
-        new { Id = 3, Nome = "Ação C", Preco = 150.30 }
-    };
-        return Ok(acoes);
+        return Ok(await _acoesAppService.BuscarAcoes());
     }
+
+
 
 }
 

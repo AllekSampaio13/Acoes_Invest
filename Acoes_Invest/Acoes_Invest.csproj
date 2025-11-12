@@ -14,4 +14,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AcoesInvest.Application\AcoesInvest.Application.csproj" />
+    <ProjectReference Include="..\AcoesInvest.Infra.IoC\AcoesInvest.Infra.IoC.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AcoesInvest.Domain.Models;
 
-namespace AcoesInvest.Domain.Interfaces.Repositories
+namespace AcoesInvest.Domain.Interfaces.Repositories;
+
+public interface IAcoesRepository : IBaseRepository<Acoes>
 {
-    public interface IAcoesRepository
-    {
-
-    }
+    Task<IEnumerable<Acoes>> BuscarAcoes();
 }
