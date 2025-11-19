@@ -21,4 +21,13 @@ public class AcoesService : IAcoesService
     {
         return await _acoesRepository.BuscarAcoesNome(nome);
     }
+
+    public async Task<Acoes> CadastrarAcoes(Acoes acoes)
+    {
+        await _acoesRepository.CadastrarAcoes(acoes);
+        await _acoesRepository.UnitOfWork.SaveChangesAsync();
+
+        return (acoes);
+    }
+
 }

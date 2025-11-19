@@ -26,4 +26,10 @@ public class AcoesRepository : BaseRepository<Acoes>, IAcoesRepository
 
         return result;
     }
+
+    public async Task CadastrarAcoes(Acoes acoes)
+    {
+        await _context.Acoes.AddAsync(acoes);
+    }
+
 }

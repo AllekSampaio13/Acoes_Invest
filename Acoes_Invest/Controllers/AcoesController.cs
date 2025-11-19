@@ -1,4 +1,5 @@
 ﻿using AcoesInvest.Application.Services.Interfaces;
+using AcoesInvest.Application.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Acoes_Invest.Controllers;
@@ -27,6 +28,13 @@ public class AcoesController : Controller
         return Ok(acoes);
     }
 
+    [HttpPost("Cadastrar ações")]
+    public async Task<IActionResult> CadastrarAcoes([FromBody] NovoAcoesViewModel vm)
+    {
+        var result = await _acoesAppService.CadastrarAcoes(vm);
+        if (result == null) return BadRequest("Não foi possível cadastrar nenhuma Ação");
+        return Ok(result);
+    }
 
 }
 
