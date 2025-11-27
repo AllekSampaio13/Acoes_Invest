@@ -7,4 +7,5 @@ public interface IAcoesRepository : IBaseRepository<Acoes>
     Task<IEnumerable<Acoes>> BuscarAcoes();
     Task<IEnumerable<Acoes>> BuscarAcoesNome(string nome);
     Task CadastrarAcoes(Acoes acoes);
+    Task AtualizarAcoes(Acoes acoes);
 }

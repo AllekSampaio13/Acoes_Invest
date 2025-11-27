@@ -27,4 +27,16 @@ public class Acoes
         TotalInv = totalInv;
 
     }
+
+    public void Atualizar(string nome, int quantidade, decimal pm, decimal pmIr, decimal dividendos, decimal totalInv)
+    {
+        Nome = nome;
+        Quantidade = quantidade;
+        Pm = pm;
+        PmIr = pmIr;
+        Dividendos = dividendos;
+        TotalInv = totalInv;
+
+    }
+
 }

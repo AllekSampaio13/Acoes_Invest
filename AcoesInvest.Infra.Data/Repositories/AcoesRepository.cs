@@ -32,4 +32,9 @@ public class AcoesRepository : BaseRepository<Acoes>, IAcoesRepository
         await _context.Acoes.AddAsync(acoes);
     }
 
+    public async Task AtualizarAcoes(Acoes acoes)
+    {
+        await Task.FromResult(_context.Acoes.Update(acoes));
+    }
+
 }

@@ -2,6 +2,7 @@
 using AcoesInvest.Application.ViewModel;
 using AcoesInvest.Domain.Interfaces.Services;
 using AcoesInvest.Domain.Models;
+using AcoesInvest.Domain.Models.Command;
 using AutoMapper;
 
 namespace AcoesInvest.Application.Services;
@@ -39,6 +40,23 @@ public class AcoesAppService : IAcoesAppService
 
         var acoesCriadas = await _acoesService.CadastrarAcoes(novoAcoes);
         return _Mapper.Map<AcoesViewModel>(acoesCriadas);
+    }
+
+    public async Task<AcoesViewModel> AtualizarAcoes(AtualizarAcoesViewModel atualizarAcoesViewModel)
+    {
+        var command = new AtualizarAcoesCommand
+        {
+            Id = atualizarAcoesViewModel.Id,
+            Nome = atualizarAcoesViewModel.Nome,
+            Quantidade = atualizarAcoesViewModel.Quantidade,
+            Pm = atualizarAcoesViewModel.Pm,
+            PmIr = atualizarAcoesViewModel.PmIr,
+            Dividendos = atualizarAcoesViewModel.Dividendos,
+            TotalInv = atualizarAcoesViewModel.TotalInv
+        };
+
+        var acoesAtualizadas = await _acoesService.AtualizarAcoes(command);
+        return _Mapper.Map<AcoesViewModel>(acoesAtualizadas);
     }
 
 }

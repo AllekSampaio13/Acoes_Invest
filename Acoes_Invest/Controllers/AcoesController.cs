@@ -36,5 +36,13 @@ public class AcoesController : Controller
         return Ok(result);
     }
 
+    [HttpPut("Atualizar ações")]
+    public async Task<IActionResult> AtualizarAcoes([FromBody] AtualizarAcoesViewModel vm)
+    {
+        var result = await _acoesAppService.AtualizarAcoes(vm);
+        if (result == null) return BadRequest("Não foi possível atualizar a Ação");
+        return Ok(result);
+    }
+
 }
 

@@ -7,4 +7,5 @@ public interface IAcoesAppService
     Task<IEnumerable<AcoesViewModel>> BuscarAcoes();
     Task<IEnumerable<AcoesViewModel>> BuscarAcoesNome(string nome);
     Task<AcoesViewModel> CadastrarAcoes(NovoAcoesViewModel novoAcoesViewModel);
+    Task<AcoesViewModel> AtualizarAcoes(AtualizarAcoesViewModel atualizarAcoesViewModel);
 }
