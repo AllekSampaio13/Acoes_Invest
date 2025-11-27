@@ -44,5 +44,14 @@ public class AcoesController : Controller
         return Ok(result);
     }
 
+    [HttpDelete]
+    public async Task<IActionResult> DeletarAcoes(int Id)
+    {
+        var result = await _acoesAppService.DeletarAcoes(Id);
+        if (!result) return BadRequest($"Não foi possível excluir a ação {Id}");
+        if (result) return Ok();
+        return NotFound();
+    }
+
 }
 

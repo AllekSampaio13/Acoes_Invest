@@ -8,4 +8,5 @@ public interface IAcoesAppService
     Task<IEnumerable<AcoesViewModel>> BuscarAcoesNome(string nome);
     Task<AcoesViewModel> CadastrarAcoes(NovoAcoesViewModel novoAcoesViewModel);
     Task<AcoesViewModel> AtualizarAcoes(AtualizarAcoesViewModel atualizarAcoesViewModel);
+    Task<bool> DeletarAcoes(int Id);
 }

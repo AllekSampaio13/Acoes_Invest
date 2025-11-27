@@ -37,4 +37,9 @@ public class AcoesRepository : BaseRepository<Acoes>, IAcoesRepository
         await Task.FromResult(_context.Acoes.Update(acoes));
     }
 
+    public async Task DeletarAcoes(Acoes acoes)
+    {
+        await Task.FromResult(_context.Remove(acoes));
+    }
+
 }

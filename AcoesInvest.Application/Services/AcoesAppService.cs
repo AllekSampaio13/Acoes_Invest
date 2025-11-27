@@ -59,4 +59,9 @@ public class AcoesAppService : IAcoesAppService
         return _Mapper.Map<AcoesViewModel>(acoesAtualizadas);
     }
 
+    public async Task<bool> DeletarAcoes(int Id)
+    {
+        return await _acoesService.DeletarAcoes(Id);
+    }
+
 }

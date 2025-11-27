@@ -48,4 +48,15 @@ public class AcoesService : IAcoesService
         return acoes;
     }
 
+    public async Task<bool> DeletarAcoes(int Id)
+    {
+        var acoes = await _acoesRepository.Get(x => x.Id == Id);
+        if (acoes == null) return false;
+
+        await _acoesRepository.DeletarAcoes(acoes);
+        await _acoesRepository.UnitOfWork.SaveChangesAsync();
+
+        return true;
+    }
+
 }

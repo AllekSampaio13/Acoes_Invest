@@ -9,4 +9,5 @@ public interface IAcoesService
     Task<IEnumerable<Acoes>> BuscarAcoesNome(string nome);
     Task<Acoes> CadastrarAcoes(Acoes acoes);
     Task<Acoes> AtualizarAcoes(AtualizarAcoesCommand command);
+    Task<bool> DeletarAcoes(int Id);
 }
