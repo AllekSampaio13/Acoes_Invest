@@ -24,8 +24,10 @@ public class CadastroContext : DbContext, IUnitOfWork
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new AcoesMapping());
+        modelBuilder.ApplyConfiguration(new UsuariosMapping());
 
     }
     public DbSet<Acoes> Acoes { get; set; }
+    public DbSet<Usuarios> Usuarios { get; set; }
 
 }

@@ -40,6 +40,9 @@ public static class AppInvest
         services.AddScoped<IAcoesService, AcoesService>();
         //services.AddScoped<IAcoesRepository, AcoesRepository>();
 
+        services.AddScoped<IUsuariosAppService, UsuariosAppService>();
+        services.AddScoped<IUsuariosService, UsuariosService>();
+
         return services;
     }
 
@@ -57,6 +60,8 @@ public static class AppInvest
         // REGISTRO 2: Adiciona o Repositório, que depende do DbContext
         // Removemos o registro do repositório do ConfigureApplicationServices
         services.AddScoped<IAcoesRepository, AcoesRepository>();
+
+        services.AddScoped<IUsuariosRepository, UsuariosRepository>();
 
         return services;
     }

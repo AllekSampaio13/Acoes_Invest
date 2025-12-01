@@ -9,6 +9,7 @@ namespace AcoesInvest.Application.Mapper
         public DomainToViewModelProfile()
         {
             CreateMap<Acoes, AcoesViewModel>();
+            CreateMap<Usuarios, UsuariosViewModel>();
         }
 
     }

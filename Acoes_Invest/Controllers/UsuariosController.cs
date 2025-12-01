@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AcoesInvest.Application.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Acoes_Invest.Controllers;
@@ -7,14 +8,18 @@ namespace Acoes_Invest.Controllers;
 [ApiController]
 public class UsuariosController : ControllerBase
 {
-    private readonly ILogger<UsuariosController> _logger;
-
-    public UsuariosController(ILogger<UsuariosController> logger)
+    private readonly IUsuariosAppService _usuariosAppService;
+    public UsuariosController(IUsuariosAppService usuariosAppService)
     {
-        _logger = logger;
+        _usuariosAppService = usuariosAppService;
     }
 
 
+    [HttpGet("Listar Usuários")]
+    public async Task<IActionResult> BuscarUsuarios()
+    {
+        return Ok(await _usuariosAppService.BuscarUsuarios());
+    }
 
 
 }
