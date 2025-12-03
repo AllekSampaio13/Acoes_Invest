@@ -6,4 +6,5 @@ public interface IUsuariosService
 {
     Task<IEnumerable<Usuarios>> BuscarUsuarios();
     Task<IEnumerable<Usuarios>> BuscarUsuariosNome(string nome);
+    Task<Usuarios> CadastrarUsuario(Usuarios usuarios);
 }

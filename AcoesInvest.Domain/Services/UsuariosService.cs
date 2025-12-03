@@ -23,5 +23,21 @@ public class UsuariosService : IUsuariosService
         return await _usuariosRepository.BuscarUsuariosNome(nome);
     }
 
+    public async Task<Usuarios> CadastrarUsuario(Usuarios usuarios)
+    {
+        var verificaEmail = await _usuariosRepository.Get(x => x.Email == usuarios.Email);
+        
+        if (verificaEmail != null)
+        {
+                throw new Exception("Email já cadastrado.");
+        }
+
+        await _usuariosRepository.CadastrarUsuarios(usuarios);
+        await _usuariosRepository.UnitOfWork.SaveChangesAsync();
+
+
+        return usuarios;
+    }
+
 
 }

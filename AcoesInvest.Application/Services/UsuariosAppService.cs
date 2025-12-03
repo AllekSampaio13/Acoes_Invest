@@ -1,6 +1,7 @@
 ﻿using AcoesInvest.Application.Services.Interfaces;
 using AcoesInvest.Application.ViewModel;
 using AcoesInvest.Domain.Interfaces.Services;
+using AcoesInvest.Domain.Models;
 using AutoMapper;
 
 namespace AcoesInvest.Application.Services;
@@ -26,5 +27,20 @@ public class UsuariosAppService : IUsuariosAppService
         var usuarios = await _usuariosService.BuscarUsuariosNome(nome);
         return _Mapper.Map<IEnumerable<UsuariosViewModel>>(usuarios);
     }
+
+    public async Task<UsuariosViewModel> CadastrarUsuario(NovoUsuariosViewModel novoUsuariosViewModel)
+    {
+        if (!Util.Util.ValidarEmail(novoUsuariosViewModel.Email))
+        {
+            throw new Exception("Email inválido.");
+        }
+
+        var novoUsuarios = new Usuarios(novoUsuariosViewModel.Nome, 
+            novoUsuariosViewModel.Email);
+
+        var UsuariosCadastrado = await _usuariosService.CadastrarUsuario(novoUsuarios);
+        return _Mapper.Map<UsuariosViewModel>(UsuariosCadastrado);
+    }
+
 
 }

@@ -1,4 +1,5 @@
 ﻿using AcoesInvest.Application.Services.Interfaces;
+using AcoesInvest.Application.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,5 +30,12 @@ public class UsuariosController : ControllerBase
         return Ok(await _usuariosAppService.BuscarUsuariosNome(nome));
     }
 
+    [HttpPost("Cadastrar Usuário")]
+    public async Task<IActionResult> CadastrarUsuario([FromBody] NovoUsuariosViewModel vm)
+    {
+        var result = await _usuariosAppService.CadastrarUsuario(vm);
+        if (result == null) return BadRequest("Não foi possível cadastrar o usuário");
+        return Ok(result);
+    }
 
 }

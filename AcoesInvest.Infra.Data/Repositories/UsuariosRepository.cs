@@ -27,5 +27,9 @@ public class UsuariosRepository : BaseRepository<Usuarios>, IUsuariosRepository
             .ToListAsync();
     }
 
+    public async Task CadastrarUsuarios(Usuarios usuarios)
+    {
+        await _context.Usuarios.AddAsync(usuarios);
+    }
 
 }
