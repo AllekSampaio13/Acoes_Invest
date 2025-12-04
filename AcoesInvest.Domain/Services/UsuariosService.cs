@@ -1,6 +1,7 @@
 ﻿using AcoesInvest.Domain.Interfaces.Repositories;
 using AcoesInvest.Domain.Interfaces.Services;
 using AcoesInvest.Domain.Models;
+using AcoesInvest.Domain.Models.Command;
 
 namespace AcoesInvest.Domain.Services;
 
@@ -37,6 +38,20 @@ public class UsuariosService : IUsuariosService
 
 
         return usuarios;
+    }
+
+    public async Task<Usuarios> AtualizarUsuario(AtualizarUsuariosCommand command)
+    {
+        var usuarios = await _usuariosRepository.Get(x => x.Id == command.Id);
+        if (usuarios == null) return null;  
+
+        usuarios.Atualizar(command.Nome, 
+            command.Email);
+
+        await _usuariosRepository.AtualizarUsuario(usuarios);
+        await _usuariosRepository.UnitOfWork.SaveChangesAsync();
+        return usuarios;
+
     }
 
 

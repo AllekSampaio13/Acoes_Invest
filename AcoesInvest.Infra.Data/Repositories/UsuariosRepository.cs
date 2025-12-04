@@ -32,4 +32,9 @@ public class UsuariosRepository : BaseRepository<Usuarios>, IUsuariosRepository
         await _context.Usuarios.AddAsync(usuarios);
     }
 
+    public async Task AtualizarUsuario(Usuarios usuarios)
+    {
+        await Task.FromResult(_context.Update(usuarios));
+    }
+
 }

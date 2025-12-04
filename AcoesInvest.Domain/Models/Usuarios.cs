@@ -11,4 +11,12 @@ public class Usuarios
         Nome = nome;
         Email = email;
     }
+
+    public void Atualizar(string nome, string email)
+    {
+        Nome = nome;
+        Email = email;
+    }
+
+
 }

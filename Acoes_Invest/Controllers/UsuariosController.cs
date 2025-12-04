@@ -38,4 +38,13 @@ public class UsuariosController : ControllerBase
         return Ok(result);
     }
 
+    [HttpPut("Atualizar Usuário")]
+    public async Task<IActionResult> AtualizarUsuario([FromBody] AtualizarUsuariosViewModel vm)
+    {
+        var result = await _usuariosAppService.AtualizarUsuario(vm);
+        if (result == null) return BadRequest("Não foi possível atualizar o usuário");
+        return Ok(result);
+    }
+
+
 }
